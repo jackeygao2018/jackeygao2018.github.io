@@ -5,13 +5,63 @@
         <link rel="stylesheet" href="./style.css">
         <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
         <link rel="icon" href="./favicon.ico" type="image/x-icon"> 
-        </script>
+        <script src="/jquery.min.js"></script>
+        <script src="/wordcloud2.js"></script>
+        <style>
+            #main {
+                width: 100%;
+                text-align: center;
+                padding: 1em;
+            }
+            
+            #wrapper {
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            #canvas-container {
+                overflow-x: auto;
+                overflow-y: visible;
+                position: relative;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-left: auto;
+                margin-right: auto;
+                border: 1px solid #f3f3f4;
+            }
+
+            #link {
+                color: #FF8C31;
+            }
+
+            @media only screen and (max-width: 767px) {
+                #wrapper {
+                    width: 100%;
+                    padding: 1em;
+                }
+            }
+        </style>
+
     </head>
     <body>
-        <h1 class="thx">谢谢</h1>
+        <div id="main">
+            <a id="link" href="https://jackeygao.io">他的主页</a>
+            <div id="wrapper">
+                <div id="canvas-container" style="width: 760px; height: 760px;"></div>
+            <div>
+        </div>
     </body>
 
     <script>
-        window.setTimeout(function(){location.href='https://jackeygao.io'},5000);
+        var options = {
+            list: [["谢谢", "60"], ["謝謝", "30"], ["Thank you", "12"], ["ありがとう", "12"], ["감사합니다", "12"], ["Merci", "11"], ["kiitos", "11"], ["Danke", "11"], ["Dank", "11"], ["Gracias", "11"], ["Grazie", "11"], ["Tak", "11"], ["Takk", "11"], ["Tack", "10"], ["спасибо", "10"], ["дякую; спасибi", "10"], ["Дзякуй", "10"], ["dziękuję", "10"], ["děkuji", "8"], ["ďakujem", "8"], ["благодаря", "8"], ["ви благодариме", "8"], ["hvala", "8"], ["teşekkür ederim", "8"], ["təşəkkür edirəm", "8"], ["ačiū", "8"], ["Terima kasih", "8"], ["Cám o*n", "8"], ["ขอบคุณคุณ", "8"], ["dhanyavaad", "8"], ["toda", "8"], ["شكرا", "8"], ["Obrigada", "8"], ["mulţumesc", "7"], ["σας ευχαριστώ", "7"], ["Faleminderit", "7"], ["təşəkkür edirəm", "7"], ["Go raibh maith agat", "7"], ["aitäh", "7"], ["þakka þér", "7"], ["با تشکر از شما", "4"], ["salamat sa inyo", "4"], ["Aliquam", "4"], ["diolch yn fawr", "4"], ["köszönöm", "4"]],
+            fontFamily: '"STKaiti","KaiTi","Microsoft YaHei","微软雅黑",Arial,sans-serif',
+            weightFactor: 4,
+            color: 'random-dark',
+            rotateRatio: 0
+        };
+        WordCloud(document.getElementById('canvas-container'), options);
+        //window.setTimeout(function(){location.href='https://jackeygao.io'},5000);
     </script>
 </html>
